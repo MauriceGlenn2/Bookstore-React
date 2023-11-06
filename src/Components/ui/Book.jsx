@@ -17,7 +17,7 @@ function Book({ book }) {
                 if (mountedRef.current){
                     setImg(image)
                 }           
-            }, 3000)
+            }, 2000)
         }
         return () => {
             //when componet unmounts
