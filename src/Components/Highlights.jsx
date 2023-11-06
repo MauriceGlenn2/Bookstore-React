@@ -29,4 +29,3 @@ function Highlights() {
 
 export default Highlights
 
-//stoped at 37:00
