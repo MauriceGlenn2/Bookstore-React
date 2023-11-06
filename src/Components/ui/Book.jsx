@@ -28,7 +28,6 @@ function Book({ book }) {
 
     return (
         <div className="book">
-
             {
                 img ?   <> <a href={`/books/${book.id}`}>
                 <figure className='book__img--wrapper'>
@@ -47,9 +46,6 @@ function Book({ book }) {
                         <div className="skeleton book__rating--skeleton"></div>
                         <div className="skeleton book__price--skeleton"></div> </>
             }
-            
-            
-         
         </div>
     )
 }

@@ -13,8 +13,6 @@ function Rating({ rating }) {
             {
                 !Number.isInteger(rating) && <FontAwesomeIcon icon='star-half-alt' />
             }
-
-
         </div>
     )
 }
