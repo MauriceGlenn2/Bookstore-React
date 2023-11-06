@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
+import EmptyCart from "../assets/empty_cart.svg"
 
 function Cart({ cart, changeQuantity, removeItem }) {
     const total = () => {
@@ -10,9 +11,7 @@ function Cart({ cart, changeQuantity, removeItem }) {
         return price
     }
 
-function removeItem (item){
 
-}
     return (
         <div id="books__body">
             <main id="books__main">
@@ -43,7 +42,7 @@ function removeItem (item){
                                                         <span className='cart__book--price'>
                                                             {(book.salePrice || book.oringalPrice).toFixed(2)}
                                                         </span>
-                                                        <button className="cart__book--remove" onClick={removeItem}>
+                                                        <button className="cart__book--remove" onClick={() => removeItem(book)}>
                                                             Remove
                                                         </button>
                                                     </div>
@@ -64,8 +63,16 @@ function removeItem (item){
                                 }
 
                             </div>
+                            {
+                                cart.length === 0 && <div className="cart__empty">
+                                    <img src={EmptyCart} alt="" className='cart__empty--img' />
+                                    <h2>You don't have any books in your cart</h2>
+                                    <a href="/books"><button className='btn'>Browse books</button></a>
+                                </div>
+                            }
+                            
                         </div>
-                        <div className="total">
+                        {cart.length > 0 && <div className="total">
                             <div className="total__item total__sub-total">
                                 <span>Subtotal</span>
                                 <span>${(total() * 0.9).toFixed(2)}</span>
@@ -82,7 +89,7 @@ function removeItem (item){
                                 onClick={() => alert(`Coming Soon :)`)}>
                                 Proceed to checkout
                             </button>
-                        </div>
+                        </div>}
                     </div>
                 </div>
             </main>
